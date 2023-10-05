@@ -1,3 +1,30 @@
+/////login page ///////
+function Redirect() {
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let letter = /[a-zA-Z]/;
+  let Number = /[0-9]/;
+  // console.log(username, password);
+  if (
+    username != password ||
+    !letter.test(password) ||
+    !Number.test(username)
+  ) {
+    window.location.href = "second.html";
+  } else {
+    alert("Invalid Data");
+    return;
+  }
+}
+////home page //////
+let menu = document.querySelector("#menu-icon");
+let navbar = document.querySelector(".nav");
+
+menu.onclick = () => {
+  menu.classList.toggle("bx-x");
+  navbar.classList.toggle("open");
+};
+////product page //////
 const getApi = async () => {
   const dataa = fetch(" https://fakestoreapi.com/products");
   const finalData = await dataa.then((result) => result.json());
